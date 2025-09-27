@@ -3,9 +3,10 @@ import React from 'react';
 interface NavigationProps {
   currentLang: string;
   onLangChange: (lang: string) => void;
+  onAdminClick?: () => void; // добавили новый проп (опционально)
 }
 
-const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange }) => {
+const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange, onAdminClick }) => {
   return (
     <nav className="navigation">
       <div className="nav-blur-bg"></div>
@@ -14,7 +15,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange }) =>
           <div className="nav-ornament left">
             <div className="ornament-dots"></div>
           </div>
-          
+
           <div className="language-switcher">
             <div className="switcher-bg"></div>
             <button 
@@ -33,7 +34,13 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange }) =>
               <div className="btn-ripple"></div>
             </button>
           </div>
-          
+
+          {onAdminClick && (
+            <button className="admin-btn" onClick={onAdminClick}>
+              Админ
+            </button>
+          )}
+
           <div className="nav-ornament right">
             <div className="ornament-dots"></div>
           </div>
@@ -43,4 +50,4 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange }) =>
   );
 };
 
-export default Navigation; 
+export default Navigation;

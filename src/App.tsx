@@ -11,6 +11,8 @@ import './App.css';
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentLang, setCurrentLang] = useState('ru');
+  const [showAdmin, setShowAdmin] = useState(false);
+  const [adminCards, setAdminCards] = useState<any[]>([]);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -18,6 +20,14 @@ const App: React.FC = () => {
 
   const handleLanguageChange = (lang: string) => {
     setCurrentLang(lang);
+  };
+
+  const handleAdminClick = () => {
+    setShowAdmin(true);
+  };
+
+  const handleCloseAdmin = () => {
+    setShowAdmin(false);
   };
 
   useEffect(() => {
@@ -54,9 +64,27 @@ const App: React.FC = () => {
   return (
     <div className="app">
       <Header />
-      <Navigation currentLang={currentLang} onLangChange={handleLanguageChange} />
+      <Navigation currentLang={currentLang} onLangChange={handleLanguageChange} onAdminClick={handleAdminClick} />
       <MainContent currentLang={currentLang} />
       <Footer currentLang={currentLang} />
+      
+      {showAdmin && (
+        <div className="admin-modal">
+          <div className="admin-content">
+            <div className="admin-header">
+              <h2>Панель администратора</h2>
+              <button className="close-btn" onClick={handleCloseAdmin}>×</button>
+            </div>
+            <div className="admin-body">
+              <p>Здесь будет админка для управления контентом карточек</p>
+              <p>Функции: добавление, редактирование и удаление карточек с текстом и изображениями</p>
+              <div className="admin-stats">
+                <p>Всего карточек: {adminCards.length}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
       
       <style jsx>{`
         /* ============================================ */
@@ -192,9 +220,9 @@ const App: React.FC = () => {
 
         .first-name, .last-name {
           display: block;
-          font-size: 3rem;
+          font-size: clamp(1.5rem, 5vw, 3rem);
           font-weight: bold;
-          letter-spacing: 4px;
+          letter-spacing: clamp(2px, 0.3vw, 4px);
           text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
           position: relative;
         }
@@ -216,7 +244,8 @@ const App: React.FC = () => {
         }
 
         .loading-bar {
-          width: 350px;
+          width: 90%;
+          max-width: 350px;
           height: 6px;
           background: rgba(255, 255, 255, 0.2);
           border-radius: 3px;
@@ -308,11 +337,11 @@ const App: React.FC = () => {
 
         .title-line {
           display: block;
-          font-size: 4rem;
+          font-size: clamp(2rem, 6vw, 4rem);
           font-weight: bold;
           margin-bottom: 20px;
           text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-          letter-spacing: 3px;
+          letter-spacing: clamp(1px, 0.5vw, 3px);
           position: relative;
         }
 
@@ -589,6 +618,24 @@ const App: React.FC = () => {
           100% { opacity: 1; transform: scale(1); }
         }
 
+        .admin-btn {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #ffffff;
+          padding: 8px 12px;
+          border-radius: 6px;
+          font-size: 16px;
+          cursor: pointer;
+          margin-left: 20px;
+          transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+          background: rgba(255, 255, 255, 0.1);
+          border-color: rgba(255, 255, 255, 0.5);
+          transform: translateY(-2px);
+        }
+
         /* ============================================ */
         /* MAIN CONTENT STYLES */
         /* ============================================ */
@@ -705,7 +752,7 @@ const App: React.FC = () => {
         }
 
         .stat-number {
-          font-size: 3.5rem;
+          font-size: clamp(1.8rem, 7vw, 3.5rem);
           font-weight: bold;
           color: #ffffff;
           text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
@@ -1214,41 +1261,100 @@ const App: React.FC = () => {
         /* ============================================ */
         /* RESPONSIVE DESIGN */
         /* ============================================ */
+        @media (max-width: 992px) {
+          .sections-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+          }
+        }
+
         @media (max-width: 768px) {
+          .sections-grid {
+            grid-template-columns: 1fr;
+            gap: 25px;
+          }
+          .header {
+            min-height: 90vh;
+            padding: 40px 0;
+          }
+
           .title-line {
             font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+          }
+          
+          .subtitle {
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+          }
+
+          .portrait-frame {
+            width: 140px;
+            height: 140px;
+            margin: 30px auto;
           }
           
           .stats-container {
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
           }
           
           .stat-divider {
-            width: 60px;
+            width: 50px;
             height: 2px;
-            transform: rotate(90deg);
+            transform: rotate(0deg);
           }
           
           .sections-grid {
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 20px;
+            margin-bottom: 60px;
+          }
+
+          .vintage-card.large {
+            padding: 32px 20px;
           }
           
           .vintage-card {
-            padding: 30px 20px;
+            padding: 20px 16px;
+            margin-bottom: 16px;
+          }
+
+          .vintage-card.large {
+            padding: 40px 25px;
+          }
+          
+          .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+          }
+
+          .section-description {
+            font-size: 1rem;
+            line-height: 1.5;
           }
           
           .main-quote p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            line-height: 1.5;
           }
           
           .first-name, .last-name {
             font-size: 2.2rem;
+            letter-spacing: 3px;
           }
           
           .loading-bar {
             width: 280px;
+          }
+
+          .loading-text {
+            font-size: 1.2rem;
+          }
+
+          .vintage-frame {
+            padding: 35px;
           }
 
           .quote-text.typing-effect {
@@ -1262,34 +1368,178 @@ const App: React.FC = () => {
             animation: slideUpAuthor 1s ease-out forwards;
             animation-delay: 1s;
           }
+
+          .navigation {
+            padding: 15px 0;
+          }
+
+          .lang-btn {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+          }
+
+          .main-content {
+            padding: 60px 0;
+          }
+
+          .footer-content {
+            flex-direction: column;
+            gap: 20px;
+            text-align: center;
+          }
+
+          .vintage-button {
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            min-height: 44px;
+          }
         }
 
         @media (max-width: 480px) {
           .header {
-            min-height: 80vh;
-            padding: 40px 0;
+            min-height: 100vh;
+            padding: 30px 0;
           }
 
           .container {
             padding: 0 15px;
           }
 
+          .title-line {
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+          }
+
+          .subtitle {
+            font-size: 1.1rem;
+          }
+
+          .portrait-frame {
+            width: 120px;
+            height: 120px;
+            margin: 25px auto;
+          }
+
           .vintage-card.large {
-            padding: 40px 20px;
+            padding: 30px 20px;
+          }
+
+          .vintage-card {
+            padding: 20px 15px;
           }
 
           .stat-number {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+          }
+
+          .stat-label {
+            font-size: 0.9rem;
           }
 
           .section-icon {
-            padding: 12px;
-            margin-right: 15px;
+            padding: 10px;
+            margin-right: 12px;
+          }
+
+          .section-title {
+            font-size: 1.5rem;
+          }
+
+          .section-description {
+            font-size: 0.9rem;
           }
 
           .vintage-button {
-            padding: 12px 24px;
-            font-size: 0.9rem;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            min-height: 44px;
+          }
+
+          .first-name, .last-name {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+          }
+
+          .loading-bar {
+            width: 250px;
+          }
+
+          .vintage-frame {
+            padding: 25px 20px;
+          }
+
+          .main-quote p {
+            font-size: 1.1rem;
+          }
+
+          .quote-author {
+            font-size: 1rem;
+          }
+
+          .lang-btn {
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            min-height: 40px;
+          }
+
+          .main-content {
+            padding: 40px 0;
+          }
+
+          .hero-section {
+            margin-bottom: 50px;
+          }
+
+          .sections-grid {
+            gap: 20px;
+            margin-bottom: 50px;
+          }
+        }
+
+        @media (max-width: 360px) {
+          .container {
+            padding: 0 12px;
+          }
+
+          .title-line {
+            font-size: 1.9rem;
+          }
+
+          .first-name, .last-name {
+            font-size: 1.6rem;
+          }
+
+          .vintage-card {
+            padding: 18px 12px;
+          }
+
+          .vintage-card.large {
+            padding: 25px 15px;
+          }
+
+          .stat-number {
+            font-size: 2rem;
+          }
+
+          .loading-bar {
+            width: 220px;
+          }
+
+          .vintage-frame {
+            padding: 20px 15px;
+          }
+
+          .section-title {
+            font-size: 1.3rem;
+          }
+
+          .main-quote p {
+            font-size: 1rem;
+          }
+
+          .lang-btn {
+            padding: 6px 12px;
+            font-size: 0.8rem;
           }
         }
 
@@ -1319,6 +1569,97 @@ const App: React.FC = () => {
 
         ::-webkit-scrollbar-thumb:hover {
           background: #ffffff;
+        }
+
+        /* ============================================ */
+        /* ADMIN MODAL STYLES */
+        /* ============================================ */
+        .admin-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.95);
+          z-index: 2000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 0;
+          animation: fadeIn 0.3s ease forwards;
+        }
+
+        .admin-content {
+          background: linear-gradient(145deg, 
+            rgba(255, 255, 255, 0.1) 0%, 
+            rgba(255, 255, 255, 0.05) 50%, 
+            rgba(0, 0, 0, 0.1) 100%);
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          border-radius: 20px;
+          padding: 30px;
+          max-width: 600px;
+          width: 90%;
+          max-height: 80vh;
+          overflow-y: auto;
+          position: relative;
+        }
+
+        .admin-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 20px;
+          padding-bottom: 15px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .admin-header h2 {
+          color: #ffffff;
+          font-size: 1.8rem;
+          margin: 0;
+        }
+
+        .close-btn {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: #ffffff;
+          font-size: 24px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+          background: rgba(255, 0, 0, 0.2);
+          border-color: rgba(255, 0, 0, 0.5);
+          transform: scale(1.1);
+        }
+
+        .admin-body {
+          color: #ffffff;
+        }
+
+        .admin-body p {
+          margin-bottom: 15px;
+          line-height: 1.6;
+        }
+
+        .admin-stats {
+          background: rgba(255, 255, 255, 0.05);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 10px;
+          padding: 15px;
+          margin-top: 20px;
+        }
+
+        .admin-stats p {
+          margin: 0;
+          font-weight: bold;
         }
       `}</style>
     </div>
