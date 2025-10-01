@@ -1,55 +1,60 @@
 /* ============================================ */
-/* THEME VARIABLES */
+/* THEME VARIABLES - Vintage Paper Style */
 /* ============================================ */
 
 :root,
 html:not([data-theme]) {
-  /* Dark Theme (Default) */
-  --bg-primary: #0a0a0a !important;
-  --bg-secondary: #1a1a1a !important;
-  --bg-card: rgba(255, 255, 255, 0.05) !important;
-  --bg-card-hover: rgba(255, 255, 255, 0.1) !important;
+  /* Light Vintage Theme (Default) - Old Paper Style */
+  --bg-primary: #f4f1ea !important; /* Старая бумага */
+  --bg-secondary: #ebe6dc !important; /* Кремовый */
+  --bg-card: rgba(235, 230, 220, 0.6) !important;
+  --bg-card-hover: rgba(220, 210, 195, 0.8) !important;
   
-  --text-primary: #ffffff !important;
-  --text-secondary: rgba(255, 255, 255, 0.8) !important;
-  --text-muted: rgba(255, 255, 255, 0.6) !important;
+  --text-primary: #2c2416 !important; /* Темно-коричневый */
+  --text-secondary: #4a3f2e !important; /* Коричневый */
+  --text-muted: #6b5d4f !important; /* Серо-коричневый */
   
-  --border-color: rgba(255, 255, 255, 0.2) !important;
-  --border-hover: rgba(255, 255, 255, 0.4) !important;
+  --border-color: rgba(139, 119, 101, 0.3) !important; /* Коричневая граница */
+  --border-hover: rgba(139, 119, 101, 0.5) !important;
   
-  --shadow-color: rgba(0, 0, 0, 0.5) !important;
-  --glow-color: rgba(255, 255, 255, 0.3) !important;
+  --shadow-color: rgba(44, 36, 22, 0.15) !important;
+  --glow-color: rgba(139, 119, 101, 0.2) !important;
   
-  --accent-color: #ffffff !important;
-  --accent-secondary: #cccccc !important;
+  --accent-color: #8b7765 !important; /* Серо-коричневый акцент */
+  --accent-secondary: #6b5d4f !important;
   
-  --gradient-start: #0a0a0a !important;
-  --gradient-end: #1a1a1a !important;
+  --gradient-start: #f4f1ea !important;
+  --gradient-end: #ebe6dc !important;
+  
+  /* Текстура старой бумаги */
+  --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-/* Light Theme */
-html[data-theme="light"],
-[data-theme="light"] {
-  --bg-primary: #f5f5f5 !important;
-  --bg-secondary: #ffffff !important;
-  --bg-card: rgba(0, 0, 0, 0.05) !important;
-  --bg-card-hover: rgba(0, 0, 0, 0.1) !important;
+/* Dark Theme */
+html[data-theme="dark"],
+[data-theme="dark"] {
+  --bg-primary: #2c2416 !important;
+  --bg-secondary: #3a3024 !important;
+  --bg-card: rgba(58, 48, 36, 0.6) !important;
+  --bg-card-hover: rgba(74, 63, 46, 0.8) !important;
   
-  --text-primary: #1a1a1a !important;
-  --text-secondary: rgba(0, 0, 0, 0.8) !important;
-  --text-muted: rgba(0, 0, 0, 0.6) !important;
+  --text-primary: #f4f1ea !important;
+  --text-secondary: #d4cfc5 !important;
+  --text-muted: #a89f8f !important;
   
-  --border-color: rgba(0, 0, 0, 0.2) !important;
-  --border-hover: rgba(0, 0, 0, 0.4) !important;
+  --border-color: rgba(139, 119, 101, 0.3) !important;
+  --border-hover: rgba(139, 119, 101, 0.5) !important;
   
-  --shadow-color: rgba(0, 0, 0, 0.2) !important;
-  --glow-color: rgba(0, 0, 0, 0.1) !important;
+  --shadow-color: rgba(0, 0, 0, 0.4) !important;
+  --glow-color: rgba(244, 241, 234, 0.1) !important;
   
-  --accent-color: #1a1a1a !important;
-  --accent-secondary: #333333 !important;
+  --accent-color: #d4cfc5 !important;
+  --accent-secondary: #a89f8f !important;
   
-  --gradient-start: #f5f5f5 !important;
-  --gradient-end: #ffffff !important;
+  --gradient-start: #2c2416 !important;
+  --gradient-end: #3a3024 !important;
+  
+  --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
 }
 
 /* Smooth transitions for theme switching */

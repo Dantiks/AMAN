@@ -3,7 +3,7 @@ import { Sun, Moon } from 'lucide-react';
 import '../styles/ThemeToggle.css';
 
 const ThemeToggle: React.FC = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
     // Загрузка темы из localStorage
@@ -11,6 +11,9 @@ const ThemeToggle: React.FC = () => {
     if (savedTheme) {
       setTheme(savedTheme);
       document.documentElement.setAttribute('data-theme', savedTheme);
+    } else {
+      // По умолчанию светлая тема
+      document.documentElement.removeAttribute('data-theme');
     }
   }, []);
 
