@@ -9,8 +9,8 @@
 
 body {
   font-family: 'Times New Roman', serif;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
+  color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
   overflow-x: hidden;
@@ -44,7 +44,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(ellipse at center, #1a1a1a 0%, #000000 100%);
+  background: radial-gradient(ellipse at center, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +63,7 @@ body {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: #ffffff;
+  background: var(--text-primary);
   border-radius: 50%;
   animation: float 3s ease-in-out infinite;
   opacity: 0.7;
@@ -76,16 +76,16 @@ body {
 
 .loading-content {
   text-align: center;
-  color: #ffffff;
+  color: var(--text-primary);
   position: relative;
   z-index: 10;
 }
 
 .vintage-frame {
-  border: 3px solid #ffffff;
+  border: 3px solid var(--border-color);
   border-radius: 20px;
   padding: 50px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bg-card);
   backdrop-filter: blur(10px);
   position: relative;
   overflow: hidden;
@@ -98,7 +98,7 @@ body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  background: linear-gradient(45deg, transparent, var(--glow-color), transparent);
   transform: rotate(45deg);
   animation: shine 3s infinite;
 }
@@ -112,7 +112,7 @@ body {
   font-size: 3rem;
   font-weight: bold;
   margin-bottom: 20px;
-  background: linear-gradient(45deg, #ffffff, #cccccc);
+  background: linear-gradient(45deg, var(--accent-color), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -139,7 +139,7 @@ body {
 .dot {
   width: 12px;
   height: 12px;
-  background: #ffffff;
+  background: var(--text-primary);
   border-radius: 50%;
   animation: dotPulse 1.5s ease-in-out infinite;
 }
@@ -159,20 +159,24 @@ body {
 
 .admin-btn {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 16px;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
   cursor: pointer;
-  margin-left: 20px;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
 }
 
 .admin-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
   transform: translateY(-2px);
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 /* ============================================ */
@@ -247,8 +251,8 @@ body {
 }
 
 .content-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
   border-radius: 15px;
   padding: 30px;
   transition: all 0.3s ease;
@@ -273,14 +277,14 @@ body {
 
 .content-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-color: var(--border-hover);
+  box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 .card-title {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #ffffff;
+  color: var(--text-primary);
 }
 
 .card-content {
@@ -321,15 +325,39 @@ body {
 /* NAVIGATION STYLES */
 /* ============================================ */
 .navigation {
-  background: rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border-bottom: 2px solid var(--border-color);
   padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 10px var(--shadow-color);
 }
 
 .nav-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 20px;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.nav-center {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+}
+
+.nav-right {
+  justify-content: flex-end;
 }
 
 .nav-links {
@@ -383,31 +411,36 @@ body {
 
 .lang-btn {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  padding: 8px 12px;
-  border-radius: 6px;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 10px 20px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 70px;
 }
 
 .lang-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-card-hover);
   transform: translateY(-2px);
+  border-color: var(--border-hover);
 }
 
 .lang-btn.active {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: var(--accent-color);
+  color: var(--bg-primary);
+  border-color: var(--accent-color);
+  box-shadow: 0 4px 15px var(--shadow-color);
 }
 
 /* ============================================ */
 /* FOOTER STYLES */
 /* ============================================ */
 .footer {
-  background: rgba(0, 0, 0, 0.5);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
+  border-top: 2px solid var(--border-color);
   padding: 40px 0;
   text-align: center;
 }
@@ -432,7 +465,7 @@ body {
 .ornament-line {
   width: 100px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #ffffff, transparent);
+  background: linear-gradient(90deg, transparent, var(--border-color), transparent);
 }
 
 .ornament-dots {
@@ -445,7 +478,7 @@ body {
   content: '';
   width: 6px;
   height: 6px;
-  background: #ffffff;
+  background: var(--text-primary);
   border-radius: 50%;
   animation: dotPulse 2s ease-in-out infinite;
 }
@@ -462,16 +495,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+  background: var(--bg-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0.5));
+  background: linear-gradient(to bottom, var(--border-color), var(--border-hover));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ffffff;
+  background: var(--accent-color);
 }
 
 /* ============================================ */
@@ -568,6 +601,17 @@ body {
 /* ============================================ */
 /* RESPONSIVE DESIGN */
 /* ============================================ */
+@media (max-width: 1024px) {
+  .nav-content {
+    gap: 15px;
+  }
+  
+  .nav-left .nav-ornament,
+  .nav-right .nav-ornament {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .container {
     padding: 0 15px;
@@ -586,8 +630,39 @@ body {
   }
 
   .nav-content {
-    flex-direction: column;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .nav-left,
+  .nav-right {
+    flex: unset;
+  }
+  
+  .nav-center {
+    order: -1;
+    flex: 100%;
+    justify-content: center;
+  }
+  
+  .nav-right {
+    justify-content: center;
+  }
+
+  .lang-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    min-width: 60px;
+  }
+  
+  .admin-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+  
+  .admin-btn span {
+    display: none;
   }
 
   .nav-links {
@@ -667,5 +742,55 @@ body {
   .admin-btn {
     padding: 6px 10px;
     font-size: 14px;
+  }
+}
+
+/* ============================================ */
+/* CONTENT CARDS FROM ADMIN PANEL */
+/* ============================================ */
+.admin-cards-section {
+  margin-top: 80px;
+}
+
+.section-main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 50px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.content-card-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  margin: -40px -40px 20px -40px;
+}
+
+.content-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.content-card:hover .content-card-image img {
+  transform: scale(1.1);
+}
+
+.content-card-body {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .content-card-image {
+    height: 200px;
+    margin: -40px -40px 15px -40px;
+  }
+  
+  .section-main-title {
+    font-size: 2rem;
   }
 }

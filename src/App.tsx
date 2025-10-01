@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingScreen from './components/LoadingScreen';
-import Header from './components/Header';
 import Navigation from './components/Navigation';
-import MainContent from './components/MainContent';
-import Footer from './components/Footer';
+import HomePage from './components/HomePage';
+import CardDetail from './components/CardDetail';
+import SectionDetail from './components/SectionDetail';
+import AdminPanel from './components/AdminPanel';
+import './styles/themes.css';
 import './App.css';
 
 
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentLang, setCurrentLang] = useState('ru');
+  const [currentLang, setCurrentLang] = useState('kg'); // Основной язык - кыргызский
   const [showAdmin, setShowAdmin] = useState(false);
   const [adminCards, setAdminCards] = useState<any[]>([]);
 
@@ -62,29 +65,19 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="app">
-      <Header />
-      <Navigation currentLang={currentLang} onLangChange={handleLanguageChange} onAdminClick={handleAdminClick} />
-      <MainContent currentLang={currentLang} />
-      <Footer currentLang={currentLang} />
-      
-      {showAdmin && (
-        <div className="admin-modal">
-          <div className="admin-content">
-            <div className="admin-header">
-              <h2>Панель администратора</h2>
-              <button className="close-btn" onClick={handleCloseAdmin}>×</button>
-            </div>
-            <div className="admin-body">
-              <p>Здесь будет админка для управления контентом карточек</p>
-              <p>Функции: добавление, редактирование и удаление карточек с текстом и изображениями</p>
-              <div className="admin-stats">
-                <p>Всего карточек: {adminCards.length}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+    <Router>
+      <div className="app">
+        <Navigation currentLang={currentLang} onLangChange={handleLanguageChange} onAdminClick={handleAdminClick} />
+        
+        <Routes>
+          <Route path="/" element={<HomePage currentLang={currentLang} />} />
+          <Route path="/card/:id" element={<CardDetail currentLang={currentLang} />} />
+          <Route path="/section/:id" element={<SectionDetail currentLang={currentLang} />} />
+        </Routes>
+        
+        {showAdmin && (
+          <AdminPanel onClose={handleCloseAdmin} currentLang={currentLang} />
+        )}
       
       <style jsx>{`
         /* ============================================ */
@@ -1662,7 +1655,8 @@ const App: React.FC = () => {
           font-weight: bold;
         }
       `}</style>
-    </div>
+      </div>
+    </Router>
   );
 };
 

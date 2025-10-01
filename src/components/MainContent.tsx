@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Feather, BookOpen, Camera, Video, FileText, Heart, Globe } from 'lucide-react';
-import { Section } from '../types';
+import { Section, ContentCard } from '../types';
 
 interface MainContentProps {
   currentLang: string;
@@ -9,6 +10,8 @@ interface MainContentProps {
 const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
   const heroRef = useRef<HTMLDivElement>(null);
   const sectionsRef = useRef<HTMLDivElement>(null);
+  const [contentCards, setContentCards] = useState<ContentCard[]>([]);
+  const navigate = useNavigate();
 
   const sections: Section[] = [
     {
@@ -62,6 +65,29 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
     }
   ];
 
+  // Загрузка карточек из localStorage
+  useEffect(() => {
+    const loadCards = () => {
+      const savedCards = localStorage.getItem('contentCards');
+      if (savedCards) {
+        setContentCards(JSON.parse(savedCards));
+      }
+    };
+
+    loadCards();
+
+    // Слушаем обновления из админки
+    const handleCardsUpdate = () => {
+      loadCards();
+    };
+
+    window.addEventListener('cardsUpdated', handleCardsUpdate);
+
+    return () => {
+      window.removeEventListener('cardsUpdated', handleCardsUpdate);
+    };
+  }, []);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -78,7 +104,7 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
     cards.forEach(card => observer.observe(card));
 
     return () => observer.disconnect();
-  }, []);
+  }, [contentCards]);
 
   return (
     <main className="main-content">
@@ -146,7 +172,10 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
               </p>
               
               <div className="card-footer">
-                <button className="vintage-button hover-lift">
+                <button 
+                  className="vintage-button hover-lift"
+                  onClick={() => navigate(`/section/${section.id}`)}
+                >
                   <span>{currentLang === 'ru' ? 'Читать' : 'Окуу'}</span>
                   <div className="button-glow"></div>
                   <div className="button-particles"></div>
@@ -175,6 +204,55 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
             <div className="quote-author slide-up">— Аман Токтогулов</div>
           </div>
         </div>
+
+        {/* Карточки из админ-панели */}
+        {contentCards.length > 0 && (
+          <div className="admin-cards-section">
+            <h2 className="section-main-title">
+              {currentLang === 'ru' ? 'Дополнительные материалы' : 'Кошумча материалдар'}
+            </h2>
+            <div className="sections-grid">
+              {contentCards.map((card, index) => (
+                <div 
+                  key={card.id} 
+                  className="vintage-card section-card content-card"
+                  style={{ animationDelay: `${index * 150}ms` }}
+                >
+                  <div className="card-hover-glow"></div>
+                  
+                  {card.image && (
+                    <div className="content-card-image">
+                      <img src={card.image} alt={currentLang === 'ru' ? card.titleRu : card.titleKg} />
+                    </div>
+                  )}
+                  
+                  <div className="content-card-body">
+                    <h3 className="section-title">
+                      {currentLang === 'ru' ? card.titleRu : (card.titleKg || card.titleRu)}
+                    </h3>
+                    
+                    <div className="card-divider animated-line"></div>
+                    
+                    <p className="section-description">
+                      {currentLang === 'ru' ? card.descriptionRu : (card.descriptionKg || card.descriptionRu)}
+                    </p>
+                    
+                    <div className="card-footer">
+                      <button 
+                        className="vintage-button hover-lift"
+                        onClick={() => navigate(`/card/${card.id}`)}
+                      >
+                        <span>{currentLang === 'ru' ? 'Подробнее' : 'Толугураак'}</span>
+                        <div className="button-glow"></div>
+                        <div className="button-particles"></div>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </main>
   );

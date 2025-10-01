@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { User } from 'lucide-react';
+import '../styles/Header.css';
 
 const Header: React.FC = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -11,7 +12,7 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className="header" style={{ transform: `translateY(${scrollY * 0.2}px)` }}>
+    <header className="header">
       <div className="header-bg-pattern"></div>
       <div className="header-shadows"></div>
       
@@ -23,20 +24,20 @@ const Header: React.FC = () => {
         </div>
         
         <div className="header-content">
+          <div className="portrait-frame">
+            <div className="portrait-placeholder">
+              <User size={60} />
+            </div>
+            <div className="portrait-glow"></div>
+          </div>
+          
           <h1 className="main-title">
-            <span className="title-line floating">
+            <span className="title-line">
               Аман Токтогулов
               <div className="title-glow"></div>
             </span>
-            <span className="subtitle typing">Кыргыз жазуучусу жана акыны</span>
+            <span className="subtitle">Кыргыз жазуучусу жана акыны</span>
           </h1>
-          
-          <div className="portrait-frame rotating-border">
-            <div className="portrait-placeholder pulse">
-              <User size={80} />
-              <div className="portrait-glow"></div>
-            </div>
-          </div>
         </div>
         
         <div className="header-ornament bottom">
@@ -49,4 +50,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default Header; 
+export default Header;
