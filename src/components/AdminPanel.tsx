@@ -151,6 +151,21 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
     setShowForm(true);
   };
 
+  const getCategoryName = (category: string, lang: string) => {
+    const categories: { [key: string]: { ru: string; kg: string } } = {
+      poetry: { ru: 'Поэзия', kg: 'Ырлар' },
+      prose: { ru: 'Проза', kg: 'Проза' },
+      translations: { ru: 'Переводы', kg: 'Котормолор' },
+      journalism: { ru: 'Публицистика', kg: 'Публицистика' },
+      memoirs: { ru: 'Воспоминания', kg: 'Эскерүүлөр' },
+      gallery: { ru: 'Фотогалерея', kg: 'Фотогалерея' },
+      video: { ru: 'Видео', kg: 'Видео' }
+    };
+    const categoryData = categories[category];
+    if (!categoryData) return category;
+    return lang === 'kg' ? categoryData.kg : categoryData.ru;
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="admin-modal">
@@ -262,18 +277,18 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
 
                 <div className="form-row">
                   <div className="form-group">
-                    <label>Категория</label>
+                    <label>{currentLang === 'kg' ? 'Категория' : 'Категория'}</label>
                     <select
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     >
-                      <option value="poetry">Поэзия</option>
-                      <option value="prose">Проза</option>
-                      <option value="translations">Переводы</option>
-                      <option value="journalism">Публицистика</option>
-                      <option value="memoirs">Воспоминания</option>
-                      <option value="gallery">Фотогалерея</option>
-                      <option value="video">Видео</option>
+                      <option value="poetry">{currentLang === 'kg' ? 'Ырлар' : 'Поэзия'}</option>
+                      <option value="prose">{currentLang === 'kg' ? 'Проза' : 'Проза'}</option>
+                      <option value="translations">{currentLang === 'kg' ? 'Котормолор' : 'Переводы'}</option>
+                      <option value="journalism">{currentLang === 'kg' ? 'Публицистика' : 'Публицистика'}</option>
+                      <option value="memoirs">{currentLang === 'kg' ? 'Эскерүүлөр' : 'Воспоминания'}</option>
+                      <option value="gallery">{currentLang === 'kg' ? 'Фотогалерея' : 'Фотогалерея'}</option>
+                      <option value="video">{currentLang === 'kg' ? 'Видео' : 'Видео'}</option>
                     </select>
                   </div>
                   <div className="form-group">
@@ -327,7 +342,12 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
                     )}
                     <div className="admin-card-content">
                       <h4>{card.titleRu}</h4>
-                      <p className="card-category">{card.category}</p>
+                      <p className="card-category">
+                        {currentLang === 'kg' 
+                          ? getCategoryName(card.category, 'kg')
+                          : getCategoryName(card.category, 'ru')
+                        }
+                      </p>
                       <p className="card-description">{card.descriptionRu.substring(0, 100)}...</p>
                       <div className="card-actions">
                         <button 
