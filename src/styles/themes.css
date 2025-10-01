@@ -3,27 +3,27 @@
 
 :root,
 html:not([data-theme]) {
-  /* Новая палитра: бежевый, коричневый, серый, черный */
-  --bg-primary: #f5f1eb !important; /* Бежевый фон */
-  --bg-secondary: #e8e4de !important; /* Светло-бежевый */
+  /* ТОЧНАЯ копия цветов со скриншота */
+  --bg-primary: #d8d5d0 !important; /* Светло-серый фон */
+  --bg-secondary: #e8e6e3 !important; /* Очень светлый серый */
   --bg-card: #ffffff !important; /* Белый для карточек */
-  --bg-card-hover: #f9f7f4 !important; /* Очень светлый бежевый */
+  --bg-card-hover: #f0eeeb !important; /* Светлый бежевый */
   
-  --text-primary: #2b2520 !important; /* Темно-коричневый (почти черный) */
+  --text-primary: #2b2520 !important; /* Темно-коричневый текст */
   --text-secondary: #6b5d52 !important; /* Коричневый */
-  --text-muted: #9b8d82 !important; /* Светло-коричневый/серый */
+  --text-muted: #9b8d82 !important; /* Светло-коричневый */
   
-  --border-color: rgba(43, 37, 32, 0.1) !important; /* Коричневая граница */
-  --border-hover: rgba(43, 37, 32, 0.2) !important;
+  --border-color: rgba(0, 0, 0, 0.15) !important; /* Серая граница */
+  --border-hover: rgba(0, 0, 0, 0.25) !important;
   
-  --shadow-color: rgba(43, 37, 32, 0.08) !important;
-  --glow-color: rgba(43, 37, 32, 0.04) !important;
+  --shadow-color: rgba(0, 0, 0, 0.1) !important;
+  --glow-color: rgba(0, 0, 0, 0.05) !important;
   
   --accent-color: #2b2520 !important; /* Темно-коричневый акцент */
   --accent-secondary: #4a3f36 !important; /* Коричневый */
   
-  --gradient-start: #f5f1eb !important;
-  --gradient-end: #e8e4de !important;
+  --gradient-start: #d8d5d0 !important;
+  --gradient-end: #e8e6e3 !important;
   
   --paper-texture: none;
 }

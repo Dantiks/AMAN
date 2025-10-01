@@ -3,28 +3,29 @@
 /* ============================================ */
 
 .gallery-button,
-.vintage-button {
-  /* Основные стили */
+.vintage-button,
+.gallery-button-primary {
+  /* ТОЧНАЯ копия кнопки со скриншота */
   display: inline-block;
-  padding: 18px 40px;
-  background-color: transparent;
-  border: 1px solid #000000;
-  color: #000000;
+  padding: 18px 50px;
+  background-color: #2b2520;
+  border: none;
+  color: #ffffff;
   
   /* Типографика */
-  font-family: 'Lora', 'Georgia', serif;
+  font-family: 'Georgia', serif;
   font-size: 14px;
   font-weight: 400;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-transform: none;
   text-decoration: none;
   text-align: center;
   
-  /* Форма */
-  border-radius: 0;
+  /* Овальная форма */
+  border-radius: 50px;
   
   /* Анимация */
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -34,11 +35,11 @@
 }
 
 .gallery-button:hover,
-.vintage-button:hover {
-  background-color: #000000;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.vintage-button:hover,
+.gallery-button-primary:hover {
+  background-color: #1a1410;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
 
 .gallery-button:active,

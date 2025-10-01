@@ -5,32 +5,21 @@ import '../styles/Header.css';
 const Header: React.FC = () => {
   return (
     <header className="header">
-      <div className="header-bg-pattern"></div>
-      <div className="header-shadows"></div>
-      
-      <div className="container">
-          <div className="ornament-line"></div>
-          <div className="ornament-diamond"></div>
-          <div className="ornament-line"></div>
-        </div>
+      <div className="header-content">
+        <p className="header-subtitle">Обнажая душу</p>
         
-        <div className="container">
-        <div className="header-content">
-          <div className="main-title vertical-title">
-            <span className="title-line vertical-text">
-              АМАН ТОКТОГУЛОВ
-            </span>
-          </div>
-          
-          <p className="subtitle">
-            Кыргыз акыны жана жазуучусу
-          </p>
-        </div>
+        <h1 className="main-title">
+          Аман Токтогулов
+        </h1>
         
-        <div className="header-ornament bottom">
-          <div className="ornament-line"></div>
-          <div className="ornament-diamond"></div>
-        </div>
+        <p className="header-description">
+          Кыргыз акыны жана жазуучусу. Анын чыгармалары кыргыз адабиятында терең из калтырган. 
+          Ырлар, прозалар жана башка чыгармалар менен таанышыңыз.
+        </p>
+        
+        <button className="gallery-button-primary">
+          Чыгармаларды көрүү
+        </button>
       </div>
     </header>
   );

@@ -1,0 +1,145 @@
+/* ============================================ */
+/* ТОЧНАЯ КОПИЯ ДИЗАЙНА aivazyan.tilda.ws */
+/* ============================================ */
+
+/* НАВИГАЦИЯ */
+.gallery-nav {
+  background: transparent;
+  border-bottom: none;
+  padding: 30px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.logo-link {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #2b2520;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.logo-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.nav-menu-item {
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #2b2520;
+  text-decoration: none;
+  letter-spacing: 1px;
+  padding: 10px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+}
+
+.nav-menu-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+/* HEADER */
+.header {
+  background: #d8d5d0;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 100px 20px;
+}
+
+.header-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header-subtitle {
+  font-family: 'Georgia', serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #6b5d52;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.main-title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  color: #2b2520;
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+.header-description {
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #6b5d52;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto 50px;
+}
+
+/* КНОПКА */
+.gallery-button-primary {
+  font-family: 'Georgia', serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  background: #2b2520;
+  padding: 18px 50px;
+  border: none;
+  border-radius: 50px;
+  letter-spacing: 1.5px;
+  text-transform: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.gallery-button-primary:hover {
+  background: #1a1410;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* BODY */
+body {
+  background: #d8d5d0;
+  color: #2b2520;
+  font-family: 'Georgia', serif;
+}
