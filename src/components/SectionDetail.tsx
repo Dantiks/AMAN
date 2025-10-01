@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Feather, BookOpen, Camera, Video, FileText, Heart, Globe } from 'lucide-react';
+import { ContentCard } from '../types';
 import '../styles/CardDetail.css';
 
 interface SectionDetailProps {
@@ -10,6 +11,7 @@ interface SectionDetailProps {
 const SectionDetail: React.FC<SectionDetailProps> = ({ currentLang }) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [sectionCards, setSectionCards] = useState<ContentCard[]>([]);
 
   const sectionsData: { [key: string]: any } = {
     poetry: {
@@ -77,6 +79,32 @@ const SectionDetail: React.FC<SectionDetailProps> = ({ currentLang }) => {
     }
   };
 
+  // Загрузка карточек из админки для этой категории
+  useEffect(() => {
+    const loadCards = () => {
+      const savedCards = localStorage.getItem('contentCards');
+      if (savedCards) {
+        const allCards: ContentCard[] = JSON.parse(savedCards);
+        // Фильтруем карточки по категории
+        const filtered = allCards.filter(card => card.category === id);
+        setSectionCards(filtered);
+      }
+    };
+
+    loadCards();
+
+    // Слушаем обновления из админки
+    const handleCardsUpdate = () => {
+      loadCards();
+    };
+
+    window.addEventListener('cardsUpdated', handleCardsUpdate);
+
+    return () => {
+      window.removeEventListener('cardsUpdated', handleCardsUpdate);
+    };
+  }, [id]);
+
   const section = sectionsData[id || ''];
 
   if (!section) {
@@ -130,6 +158,34 @@ const SectionDetail: React.FC<SectionDetailProps> = ({ currentLang }) => {
                 <p>{content}</p>
               </div>
             </div>
+
+            {/* Карточки из админки для этой категории */}
+            {sectionCards.length > 0 && (
+              <div className="section-admin-cards">
+                <h3 className="cards-section-title">
+                  {currentLang === 'kg' ? 'Чыгармалар' : 'Произведения'}
+                </h3>
+                <div className="admin-cards-grid">
+                  {sectionCards.map((card) => (
+                    <div 
+                      key={card.id} 
+                      className="admin-card-item"
+                      onClick={() => navigate(`/card/${card.id}`)}
+                    >
+                      {card.image && (
+                        <div className="admin-card-image">
+                          <img src={card.image} alt={currentLang === 'kg' ? (card.titleKg || card.titleRu) : card.titleRu} />
+                        </div>
+                      )}
+                      <div className="admin-card-body">
+                        <h4>{currentLang === 'kg' ? (card.titleKg || card.titleRu) : card.titleRu}</h4>
+                        <p>{(currentLang === 'kg' ? (card.descriptionKg || card.descriptionRu) : card.descriptionRu).substring(0, 100)}...</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="detail-actions">
               <button className="action-button primary" onClick={() => navigate('/')}>

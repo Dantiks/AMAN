@@ -205,54 +205,6 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
           </div>
         </div>
 
-        {/* Карточки из админ-панели */}
-        {contentCards.length > 0 && (
-          <div className="admin-cards-section">
-            <h2 className="section-main-title">
-              {currentLang === 'ru' ? 'Дополнительные материалы' : 'Кошумча материалдар'}
-            </h2>
-            <div className="sections-grid">
-              {contentCards.map((card, index) => (
-                <div 
-                  key={card.id} 
-                  className="vintage-card section-card content-card"
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <div className="card-hover-glow"></div>
-                  
-                  {card.image && (
-                    <div className="content-card-image">
-                      <img src={card.image} alt={currentLang === 'ru' ? card.titleRu : card.titleKg} />
-                    </div>
-                  )}
-                  
-                  <div className="content-card-body">
-                    <h3 className="section-title">
-                      {currentLang === 'ru' ? card.titleRu : (card.titleKg || card.titleRu)}
-                    </h3>
-                    
-                    <div className="card-divider animated-line"></div>
-                    
-                    <p className="section-description">
-                      {currentLang === 'ru' ? card.descriptionRu : (card.descriptionKg || card.descriptionRu)}
-                    </p>
-                    
-                    <div className="card-footer">
-                      <button 
-                        className="vintage-button hover-lift"
-                        onClick={() => navigate(`/card/${card.id}`)}
-                      >
-                        <span>{currentLang === 'ru' ? 'Подробнее' : 'Толугураак'}</span>
-                        <div className="button-glow"></div>
-                        <div className="button-particles"></div>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </main>
   );

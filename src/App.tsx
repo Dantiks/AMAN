@@ -15,7 +15,6 @@ const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [currentLang, setCurrentLang] = useState('kg'); // Основной язык - кыргызский
   const [showAdmin, setShowAdmin] = useState(false);
-  const [adminCards, setAdminCards] = useState<any[]>([]);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
