@@ -29,11 +29,11 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange, onAd
   ];
 
   const menuItems = [
-    { id: 'biography', label: 'Өмүр баяны' },
-    { id: 'gallery', label: 'Галерея' },
-    { id: 'video', label: 'Видео' },
-    { id: 'poetry', label: 'Ырлар' },
-    { id: 'feedback', label: 'Байланыш' }
+    { id: 'biography', label: 'Өмүр баяны', path: '/section/biography' },
+    { id: 'gallery', label: 'Галерея', path: '/section/gallery' },
+    { id: 'video', label: 'Видео', path: '/section/video' },
+    { id: 'poetry', label: 'Ырлар', path: '/section/poetry' },
+    { id: 'feedback', label: 'Байланыш', path: '/section/feedback' }
   ];
 
   return (
@@ -54,7 +54,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange, onAd
           {menuItems.map((item) => (
             <a 
               key={item.id}
-              href={`#${item.id}`}
+              href={item.path}
               className="nav-menu-item"
             >
               {item.label}
