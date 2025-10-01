@@ -6,13 +6,15 @@ import { getAuth } from 'firebase/auth';
 // Firebase конфигурация
 // ВАЖНО: Замените эти значения на свои из Firebase Console
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
+  apiKey: "AIzaSyC5qL28paLUsUicZEuobdJ8uAi5mVYSyKw",
+  authDomain: "aman-toktogul-site.firebaseapp.com",
+  databaseURL: "https://aman-toktogul-site-default-rtdb.firebaseio.com",
+  projectId: "aman-toktogul-site",
+  storageBucket: "aman-toktogul-site.firebasestorage.app",
+  messagingSenderId: "941939275801",
+  appId: "1:941939275801:web:269d8aa2c24c80de071288",
+  measurementId: "G-TVF1S3KQRY"
+  };
 
 // Инициализация Firebase
 const app = initializeApp(firebaseConfig);

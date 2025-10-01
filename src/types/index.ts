@@ -17,7 +17,7 @@ export interface ContentCard {
   descriptionRu: string;
   descriptionKg: string;
   image?: string; // base64 или URL
-  category: string; // 'poetry' | 'prose' | 'translations' | 'journalism' | 'memoirs' | 'gallery' | 'video'
+  category: string; // 'poetry' | 'prose' | 'translations' | 'journalism' | 'memoirs' | 'gallery' | 'video' | 'biography' | 'feedback'
   createdAt: number;
   updatedAt: number;
 }

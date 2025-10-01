@@ -159,7 +159,9 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
       journalism: { ru: 'Публицистика', kg: 'Публицистика' },
       memoirs: { ru: 'Воспоминания', kg: 'Эскерүүлөр' },
       gallery: { ru: 'Фотогалерея', kg: 'Фотогалерея' },
-      video: { ru: 'Видео', kg: 'Видео' }
+      video: { ru: 'Видео', kg: 'Видео' },
+      biography: { ru: 'Биография', kg: 'Өмүр баяны' },
+      feedback: { ru: 'Отзывы и предложения', kg: 'Ой-пикирлер жана сунуштар' }
     };
     const categoryData = categories[category];
     if (!categoryData) return category;
@@ -289,6 +291,8 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
                       <option value="memoirs">{currentLang === 'kg' ? 'Эскерүүлөр' : 'Воспоминания'}</option>
                       <option value="gallery">{currentLang === 'kg' ? 'Фотогалерея' : 'Фотогалерея'}</option>
                       <option value="video">{currentLang === 'kg' ? 'Видео' : 'Видео'}</option>
+                      <option value="biography">{currentLang === 'kg' ? 'Өмүр баяны' : 'Биография'}</option>
+                      <option value="feedback">{currentLang === 'kg' ? 'Ой-пикирлер жана сунуштар' : 'Отзывы и предложения'}</option>
                     </select>
                   </div>
                   <div className="form-group">

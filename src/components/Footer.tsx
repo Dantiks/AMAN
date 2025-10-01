@@ -21,6 +21,13 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
             }
           </p>
           
+          <p className="footer-developer" style={{ marginTop: '15px', opacity: 0.7, fontSize: '0.9rem' }}>
+            {currentLang === 'ru' 
+              ? 'Разработка сайта: Cascade AI & Windsurf' 
+              : 'Сайтты иштеп чыккан: Cascade AI & Windsurf'
+            }
+          </p>
+          
           <div className="footer-decoration">
             <div className="decoration-element pulse-glow"></div>
             <div className="decoration-dots">

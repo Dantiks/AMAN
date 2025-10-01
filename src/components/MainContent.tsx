@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Feather, BookOpen, Camera, Video, FileText, Heart, Globe } from 'lucide-react';
+import { Feather, BookOpen, Camera, Video, FileText, Heart, Globe, User, MessageSquare } from 'lucide-react';
 import { Section, ContentCard } from '../types';
 
 interface MainContentProps {
@@ -62,6 +62,20 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
       titleKg: 'Видео',
       icon: <Video size={32} />,
       description: 'Видеоматериалы и интервью'
+    },
+    {
+      id: 'biography',
+      titleRu: 'Биография',
+      titleKg: 'Өмүр баяны',
+      icon: <User size={32} />,
+      description: 'Жизненный путь и творческая биография'
+    },
+    {
+      id: 'feedback',
+      titleRu: 'Отзывы и предложения',
+      titleKg: 'Сайт боюнча ой-пикирлер жана сунуштар',
+      icon: <MessageSquare size={32} />,
+      description: 'Ваши мысли о сайте и предложения'
     }
   ];
 
