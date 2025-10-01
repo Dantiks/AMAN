@@ -61,24 +61,35 @@
   }
 }
 
-.main-title {
   margin-bottom: 50px;
 }
 
 .title-line {
   display: block;
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: bold;
-  margin-bottom: 25px;
-  text-shadow: 0 0 30px var(--glow-color);
-  letter-spacing: clamp(2px, 0.5vw, 5px);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  margin-bottom: 20px;
+  letter-spacing: 0;
   position: relative;
+  color: #2b2520;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  line-height: 1.2;
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  letter-spacing: 0.1em;
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin: 0 auto;
+}
+
+.title-line {
   background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: titleFloat 4s ease-in-out infinite;
-}
 
 @keyframes titleFloat {
   0%, 100% { transform: translateY(0px); }

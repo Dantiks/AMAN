@@ -9,33 +9,27 @@ const Header: React.FC = () => {
       <div className="header-shadows"></div>
       
       <div className="container">
-        <div className="header-ornament top">
           <div className="ornament-line"></div>
           <div className="ornament-diamond"></div>
           <div className="ornament-line"></div>
         </div>
         
+        <div className="container">
         <div className="header-content">
-          <div className="portrait-frame">
-            <div className="portrait-placeholder">
-              <User size={60} />
-            </div>
-            <div className="portrait-glow"></div>
+          <div className="main-title vertical-title">
+            <span className="title-line vertical-text">
+              АМАН ТОКТОГУЛОВ
+            </span>
           </div>
           
-          <h1 className="main-title">
-            <span className="title-line">
-              Аман Токтогулов
-              <div className="title-glow"></div>
-            </span>
-            <span className="subtitle">Кыргыз жазуучусу жана акыны</span>
-          </h1>
+          <p className="subtitle">
+            Кыргыз акыны жана жазуучусу
+          </p>
         </div>
         
         <div className="header-ornament bottom">
           <div className="ornament-line"></div>
           <div className="ornament-diamond"></div>
-          <div className="ornament-line"></div>
         </div>
       </div>
     </header>

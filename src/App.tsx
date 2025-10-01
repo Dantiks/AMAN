@@ -13,15 +13,15 @@ import './App.css';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [currentLang, setCurrentLang] = useState('kg'); // Основной язык - кыргызский
+  const [currentLang] = useState('kg'); // Только кыргызский язык
   const [showAdmin, setShowAdmin] = useState(false);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
 
-  const handleLanguageChange = (lang: string) => {
-    setCurrentLang(lang);
+  const handleLanguageChange = () => {
+    // Язык всегда кыргызский
   };
 
   const handleAdminClick = () => {

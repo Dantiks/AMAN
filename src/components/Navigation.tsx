@@ -9,49 +9,29 @@ interface NavigationProps {
 }
 
 const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange, onAdminClick }) => {
+  const handleLogoDoubleClick = () => {
+    if (onAdminClick) {
+      onAdminClick();
+    }
+  };
+
   return (
-    <nav className="navigation">
-      <div className="nav-blur-bg"></div>
+    <nav className="gallery-nav">
       <div className="container">
-        <div className="nav-content">
-          <div className="nav-left">
-            <div className="nav-ornament">
-              <div className="ornament-dots"></div>
-            </div>
+        <div className="nav-wrapper">
+          <div className="nav-logo">
+            <a 
+              href="/" 
+              className="logo-link"
+              onDoubleClick={handleLogoDoubleClick}
+              title="Двойной клик для админ-панели"
+            >
+              Аман Токтогулов
+            </a>
           </div>
 
-          <div className="nav-center">
-            <div className="language-switcher">
-              <div className="switcher-bg"></div>
-              <button 
-                className={`lang-btn ${currentLang === 'kg' ? 'active' : ''}`}
-                onClick={() => onLangChange('kg')}
-              >
-                КЫР
-                <div className="btn-ripple"></div>
-              </button>
-              <span className="separator pulse">|</span>
-              <button 
-                className={`lang-btn ${currentLang === 'ru' ? 'active' : ''}`}
-                onClick={() => onLangChange('ru')}
-              >
-                РУС
-                <div className="btn-ripple"></div>
-              </button>
-            </div>
-          </div>
-
-          <div className="nav-right">
+          <div className="nav-menu">
             <ThemeToggle />
-            {onAdminClick && (
-              <button className="admin-btn" onClick={onAdminClick}>
-                <User size={18} />
-                <span>Админ</span>
-              </button>
-            )}
-            <div className="nav-ornament">
-              <div className="ornament-dots"></div>
-            </div>
           </div>
         </div>
       </div>
