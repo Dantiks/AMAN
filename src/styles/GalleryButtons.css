@@ -1,0 +1,101 @@
+/* ============================================ */
+/* ТОЧНАЯ КОПИЯ КНОПОК С aivazyan.tilda.ws */
+/* ============================================ */
+
+.gallery-button,
+.vintage-button {
+  /* Основные стили */
+  display: inline-block;
+  padding: 18px 40px;
+  background-color: transparent;
+  border: 1px solid #000000;
+  color: #000000;
+  
+  /* Типографика */
+  font-family: 'Lora', 'Georgia', serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  
+  /* Форма */
+  border-radius: 0;
+  
+  /* Анимация */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  
+  /* Убираем outline */
+  outline: none;
+}
+
+.gallery-button:hover,
+.vintage-button:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-button:active,
+.vintage-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Вторичная кнопка (прозрачная) */
+.gallery-button-secondary {
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000000;
+  padding: 16px 36px;
+  font-size: 13px;
+  letter-spacing: 0.8px;
+}
+
+.gallery-button-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #000000;
+  color: #000000;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Маленькая кнопка */
+.gallery-button-small {
+  padding: 12px 28px;
+  font-size: 12px;
+  letter-spacing: 0.8px;
+}
+
+/* Большая кнопка */
+.gallery-button-large {
+  padding: 22px 50px;
+  font-size: 15px;
+  letter-spacing: 1.2px;
+}
+
+/* Кнопка на всю ширину */
+.gallery-button-full {
+  width: 100%;
+  display: block;
+}
+
+/* Отключенная кнопка */
+.gallery-button:disabled,
+.vintage-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Убираем все лишние эффекты */
+.button-glow,
+.button-particles,
+.btn-ripple {
+  display: none !important;
+}
