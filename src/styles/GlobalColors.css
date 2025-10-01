@@ -1,0 +1,201 @@
+/* ============================================ */
+/* ГЛОБАЛЬНАЯ ПАЛИТРА ЦВЕТОВ - ПРИМЕНЯЕТСЯ ВЕЗДЕ */
+/* Бронзо-коричневый, бежевый, светло-серый, черный */
+/* ============================================ */
+
+:root {
+  /* ОСНОВНЫЕ ЦВЕТА */
+  --color-beige: #d8d5d0;           /* Бежевый фон */
+  --color-light-gray: #e8e6e3;      /* Светло-серый */
+  --color-bronze-brown: #8b7355;    /* Бронзо-коричневый */
+  --color-dark-brown: #2b2520;      /* Темно-коричневый (почти черный) */
+  --color-black: #000000;           /* Черный */
+  --color-white: #ffffff;           /* Белый */
+  
+  /* ПРИМЕНЕНИЕ */
+  --bg-main: var(--color-beige);
+  --bg-secondary: var(--color-light-gray);
+  --bg-card: var(--color-white);
+  
+  --text-main: var(--color-dark-brown);
+  --text-secondary: var(--color-bronze-brown);
+  --text-muted: #9b8d82;
+  
+  --border-main: rgba(139, 115, 85, 0.2);
+  --border-hover: rgba(139, 115, 85, 0.4);
+  
+  --button-bg: var(--color-dark-brown);
+  --button-text: var(--color-white);
+  --button-hover: var(--color-black);
+}
+
+/* BODY */
+body {
+  background: var(--bg-main) !important;
+  color: var(--text-main) !important;
+}
+
+/* НАВИГАЦИЯ */
+.gallery-nav {
+  background: transparent !important;
+}
+
+.logo-link {
+  color: var(--text-main) !important;
+  border-color: var(--border-main) !important;
+}
+
+.logo-link:hover {
+  background: rgba(139, 115, 85, 0.1) !important;
+}
+
+/* HEADER */
+.header {
+  background: var(--bg-main) !important;
+}
+
+.header-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.main-title {
+  color: var(--text-main) !important;
+}
+
+.header-description {
+  color: var(--text-secondary) !important;
+}
+
+/* КНОПКИ */
+.gallery-button-primary,
+.gallery-button,
+.vintage-button {
+  background: var(--button-bg) !important;
+  color: var(--button-text) !important;
+  border: none !important;
+}
+
+.gallery-button-primary:hover,
+.gallery-button:hover,
+.vintage-button:hover {
+  background: var(--button-hover) !important;
+}
+
+/* КАРТОЧКИ СЕКЦИЙ */
+.section-card {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border-main) !important;
+}
+
+.section-card:hover {
+  border-color: var(--border-hover) !important;
+  box-shadow: 0 10px 30px rgba(139, 115, 85, 0.15) !important;
+}
+
+.section-title {
+  color: var(--text-main) !important;
+}
+
+.section-description {
+  color: var(--text-secondary) !important;
+}
+
+.section-icon {
+  color: var(--text-main) !important;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  background: var(--bg-main) !important;
+}
+
+/* СТАТИСТИКА */
+.stat-number {
+  color: var(--text-main) !important;
+}
+
+.stat-label {
+  color: var(--text-secondary) !important;
+}
+
+.stat-divider {
+  background: var(--border-main) !important;
+}
+
+/* ЦИТАТЫ */
+.quote-text {
+  color: var(--text-main) !important;
+}
+
+.quote-author {
+  color: var(--text-secondary) !important;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--bg-secondary) !important;
+  border-top: 1px solid var(--border-main) !important;
+}
+
+.footer-text,
+.footer-developer {
+  color: var(--text-main) !important;
+}
+
+/* БУРГЕР МЕНЮ */
+.burger-button {
+  border-color: var(--border-main) !important;
+  color: var(--text-main) !important;
+}
+
+.burger-button:hover {
+  background: rgba(139, 115, 85, 0.1) !important;
+}
+
+.burger-menu {
+  background: var(--bg-card) !important;
+}
+
+.burger-header h2 {
+  color: var(--text-main) !important;
+}
+
+.burger-nav-item {
+  color: var(--text-main) !important;
+}
+
+.burger-nav-item:hover {
+  background: var(--bg-main) !important;
+}
+
+/* ДЕТАЛЬНЫЕ СТРАНИЦЫ */
+.card-detail-container {
+  background: var(--bg-main) !important;
+}
+
+.detail-title {
+  color: var(--text-main) !important;
+}
+
+.detail-description {
+  color: var(--text-secondary) !important;
+}
+
+/* АДМИН ПАНЕЛЬ */
+.admin-modal {
+  background: rgba(43, 37, 32, 0.9) !important;
+}
+
+.admin-content {
+  background: var(--bg-card) !important;
+}
+
+.admin-header h2 {
+  color: var(--text-main) !important;
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+  border-color: var(--border-main) !important;
+  color: var(--text-main) !important;
+}

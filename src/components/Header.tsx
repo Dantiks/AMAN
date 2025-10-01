@@ -13,20 +13,13 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header-content">
-        <p className="header-subtitle">Жан дүйнөнү ачуу</p>
-        
         <h1 className="main-title">
           Аман Токтогулов
         </h1>
         
-        <p className="header-description">
-          Кыргыз акыны жана жазуучусу. Анын чыгармалары кыргыз адабиятында терең из калтырган. 
-          Ырлар, прозалар жана башка чыгармалар менен таанышыңыз.
+        <p className="header-subtitle">
+          Кыргыз акыны жана жазуучусу
         </p>
-        
-        <button className="gallery-button-primary" onClick={scrollToSections}>
-          Чыгармаларды көрүү
-        </button>
       </div>
     </header>
   );

@@ -70,12 +70,12 @@
 /* HEADER */
 .header {
   background: #d8d5d0;
-  min-height: 90vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 100px 20px;
+  padding: 80px 20px;
 }
 
 .header-content {
@@ -84,33 +84,23 @@
   margin: 0 auto;
 }
 
-.header-subtitle {
-  font-family: 'Georgia', serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: #6b5d52;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
 .main-title {
   font-family: 'Playfair Display', 'Georgia', serif;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(3.5rem, 10vw, 7rem);
   font-weight: 400;
   color: #2b2520;
-  line-height: 1.2;
-  margin-bottom: 40px;
+  line-height: 1.1;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
 }
 
-.header-description {
+.header-subtitle {
   font-family: 'Georgia', serif;
   font-size: 16px;
   font-weight: 400;
   color: #6b5d52;
-  line-height: 1.8;
-  max-width: 600px;
-  margin: 0 auto 50px;
+  letter-spacing: 1px;
+  margin: 0;
 }
 
 /* КНОПКА */

@@ -51,16 +51,7 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange, onAd
         </div>
 
         <div className="nav-menu">
-          {menuItems.map((item) => (
-            <a 
-              key={item.id}
-              href={item.path}
-              className="nav-menu-item"
-            >
-              {item.label}
-            </a>
-          ))}
-          <ThemeToggle />
+          <BurgerMenu sections={sections} />
         </div>
       </div>
     </nav>
