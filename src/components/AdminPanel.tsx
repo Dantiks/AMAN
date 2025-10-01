@@ -137,6 +137,20 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
     setShowForm(false);
   };
 
+  const handleAddNew = () => {
+    // Очищаем форму перед открытием
+    setFormData({
+      titleRu: '',
+      titleKg: '',
+      descriptionRu: '',
+      descriptionKg: '',
+      image: '',
+      category: 'poetry'
+    });
+    setEditingCard(null);
+    setShowForm(true);
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="admin-modal">
@@ -188,7 +202,7 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
             </div>
             <button 
               className="btn-add-new"
-              onClick={() => setShowForm(!showForm)}
+              onClick={handleAddNew}
             >
               <Plus size={20} />
               Добавить карточку
