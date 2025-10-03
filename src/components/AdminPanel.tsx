@@ -38,13 +38,12 @@ const AdminPanel: React.FC<AdminPanelProps> = ({ onClose, currentLang }) => {
   const saveCards = (newCards: ContentCard[]) => {
     localStorage.setItem('contentCards', JSON.stringify(newCards));
     setCards(newCards);
-    // Отправляем событие для обновления главной страницы
     window.dispatchEvent(new Event('cardsUpdated'));
   };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password === ADMIN_PASSWORD) {
+    if (password === 'aman2025') {
       setIsAuthenticated(true);
     } else {
       alert('Неверный пароль!');

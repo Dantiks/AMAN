@@ -4,12 +4,14 @@
 
 /* НАВИГАЦИЯ */
 .gallery-nav {
-  background: transparent;
+  background: rgba(216, 213, 208, 0.95);
   border-bottom: none;
-  padding: 30px 0;
-  position: sticky;
+  padding: 20px 0;
+  position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
+  right: 0;
+  z-index: 9999;
   backdrop-filter: blur(10px);
 }
 
@@ -43,8 +45,9 @@
 
 .nav-menu {
   display: flex;
-  gap: 15px;
+  gap: 8px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .nav-menu-item {
@@ -53,13 +56,14 @@
   font-weight: 400;
   color: #2b2520;
   text-decoration: none;
-  letter-spacing: 1px;
-  padding: 10px 24px;
+  letter-spacing: 0.8px;
+  padding: 10px 20px;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 50px;
   transition: all 0.3s ease;
   background: transparent;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .nav-menu-item:hover {
@@ -70,37 +74,67 @@
 /* HEADER */
 .header {
   background: #d8d5d0;
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 80px 20px;
+  padding: 100px 20px 60px;
 }
 
 .header-content {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto;
+  text-align: center !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  padding-top: 40px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+.header-photo {
+  margin-bottom: 25px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(43, 37, 32, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.author-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .main-title {
-  font-family: 'Playfair Display', 'Georgia', serif;
-  font-size: clamp(3.5rem, 10vw, 7rem);
-  font-weight: 400;
-  color: #2b2520;
-  line-height: 1.1;
-  margin-bottom: 30px;
-  letter-spacing: -1px;
+  font-family: 'Playfair Display', 'Georgia', serif !important;
+  font-size: clamp(4rem, 12vw, 8rem) !important;
+  font-weight: 500 !important;
+  color: #000000 !important;
+  line-height: 1 !important;
+  margin: 0 0 15px 0 !important;
+  letter-spacing: 3px !important;
+  display: block !important;
+  width: 100% !important;
+  -webkit-font-smoothing: none !important;
+  -moz-osx-font-smoothing: unset !important;
+  text-rendering: optimizeLegibility !important;
+  image-rendering: crisp-edges !important;
 }
 
 .header-subtitle {
-  font-family: 'Georgia', serif;
-  font-size: 16px;
-  font-weight: 400;
-  color: #6b5d52;
-  letter-spacing: 1px;
-  margin: 0;
+  font-family: 'Georgia', serif !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #6b5d52 !important;
+  letter-spacing: 1.5px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
 }
 
 /* КНОПКА */

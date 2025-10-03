@@ -13,6 +13,14 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header-content">
+        <div className="header-photo">
+          <img 
+            src="/images/aman-toktogul.jpg" 
+            alt="Аман Токтогулов" 
+            className="author-photo"
+          />
+        </div>
+        
         <h1 className="main-title">
           Аман Токтогулов
         </h1>

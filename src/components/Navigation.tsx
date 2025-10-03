@@ -30,28 +30,40 @@ const Navigation: React.FC<NavigationProps> = ({ currentLang, onLangChange, onAd
 
   const menuItems = [
     { id: 'biography', label: 'Өмүр баяны', path: '/section/biography' },
-    { id: 'gallery', label: 'Галерея', path: '/section/gallery' },
-    { id: 'video', label: 'Видео', path: '/section/video' },
     { id: 'poetry', label: 'Ырлар', path: '/section/poetry' },
-    { id: 'feedback', label: 'Байланыш', path: '/section/feedback' }
+    { id: 'prose', label: 'Проза', path: '/section/prose' },
+    { id: 'translations', label: 'Котормолор', path: '/section/translations' },
+    { id: 'journalism', label: 'Публицистика', path: '/section/journalism' },
+    { id: 'memoirs', label: 'Эскерүүлөр', path: '/section/memoirs' },
+    { id: 'gallery', label: 'Фотогалерея', path: '/section/gallery' },
+    { id: 'video', label: 'Видео', path: '/section/video' },
+    { id: 'feedback', label: 'Ой-пикирлер', path: '/section/feedback' }
   ];
 
   return (
     <nav className="gallery-nav">
       <div className="nav-wrapper">
         <div className="nav-logo">
-          <a 
-            href="/" 
+          <span 
             className="logo-link"
             onDoubleClick={handleLogoDoubleClick}
             title="Двойной клик для админ-панели"
+            style={{ cursor: 'pointer' }}
           >
             АМАН ТОКТОГУЛОВ
-          </a>
+          </span>
         </div>
 
         <div className="nav-menu">
-          <BurgerMenu sections={sections} />
+          {menuItems.map((item) => (
+            <a 
+              key={item.id}
+              href={item.path}
+              className="nav-menu-item"
+            >
+              {item.label}
+            </a>
+          ))}
         </div>
       </div>
     </nav>

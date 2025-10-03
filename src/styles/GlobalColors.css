@@ -181,17 +181,119 @@ body {
   color: var(--text-secondary) !important;
 }
 
-/* АДМИН ПАНЕЛЬ */
+/* АДМИН ПАНЕЛЬ - ВСЁ ВИДНО */
 .admin-modal {
-  background: rgba(43, 37, 32, 0.9) !important;
+  background: rgba(0, 0, 0, 0.7) !important;
 }
 
 .admin-content {
-  background: var(--bg-card) !important;
+  background: #ffffff !important;
+  color: #2b2520 !important;
 }
 
 .admin-header h2 {
-  color: var(--text-main) !important;
+  color: #2b2520 !important;
+}
+
+.admin-body {
+  background: #ffffff !important;
+}
+
+.admin-stats {
+  background: #f5f3f0 !important;
+}
+
+.stat-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(139, 115, 85, 0.2) !important;
+}
+
+.stat-number {
+  color: #2b2520 !important;
+}
+
+.stat-label {
+  color: #6b5d52 !important;
+}
+
+.btn-add-new {
+  background: #2b2520 !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.card-form {
+  background: #f5f3f0 !important;
+  border: 1px solid rgba(139, 115, 85, 0.2) !important;
+}
+
+.card-form h3 {
+  color: #2b2520 !important;
+}
+
+.form-group label {
+  color: #2b2520 !important;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: #ffffff !important;
+  border: 1px solid rgba(139, 115, 85, 0.2) !important;
+  color: #2b2520 !important;
+}
+
+.btn-submit {
+  background: #2b2520 !important;
+  color: #ffffff !important;
+}
+
+.btn-cancel {
+  background: #9b8d82 !important;
+  color: #ffffff !important;
+}
+
+.admin-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(139, 115, 85, 0.2) !important;
+}
+
+.admin-card h4 {
+  color: #2b2520 !important;
+}
+
+.card-category,
+.card-description {
+  color: #6b5d52 !important;
+}
+
+.btn-edit,
+.btn-delete {
+  color: #2b2520 !important;
+  border: 1px solid rgba(139, 115, 85, 0.2) !important;
+}
+
+.close-btn {
+  color: #2b2520 !important;
+}
+
+.login-content {
+  background: #ffffff !important;
+}
+
+.login-form-container h2 {
+  color: #2b2520 !important;
+}
+
+.login-form input {
+  background: #f5f3f0 !important;
+  border: 1px solid rgba(139, 115, 85, 0.2) !important;
+  color: #2b2520 !important;
+}
+
+.login-form button {
+  background: #2b2520 !important;
+  color: #ffffff !important;
 }
 
 /* THEME TOGGLE */

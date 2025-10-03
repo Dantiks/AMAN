@@ -16,16 +16,23 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
         <div className="footer-content">
           <p className="footer-text fade-in">
             {currentLang === 'ru' 
-              ? '© 2024 Литературное наследие Амана Токтогулова' 
-              : '© 2024 Аман Токтогулов адабий мурасы'
+              ? '© 2025 Литературное наследие Амана Токтогулова' 
+              : '© 2025 Аман Токтогулов адабий мурасы'
             }
           </p>
           
-          <p className="footer-developer" style={{ marginTop: '15px', opacity: 0.7, fontSize: '0.9rem' }}>
-            {currentLang === 'ru' 
-              ? 'Разработка сайта: Cascade AI & Windsurf' 
-              : 'Сайтты иштеп чыккан: Cascade AI & Windsurf'
-            }
+          <p className="footer-developer" style={{ marginTop: '15px', fontSize: '0.9rem', color: '#6b5d52' }}>
+            Разработчик: Даниял Аманов
+          </p>
+          
+          <p className="footer-contacts" style={{ marginTop: '8px', fontSize: '0.85rem', color: '#9b8d82' }}>
+            <a href="mailto:danielamanov28@gmail.com" style={{ color: '#6b5d52', textDecoration: 'none' }}>
+              danielamanov28@gmail.com
+            </a>
+            {' | '}
+            <a href="tel:+996556786186" style={{ color: '#6b5d52', textDecoration: 'none' }}>
+              +996 556 786 186
+            </a>
           </p>
           
           <div className="footer-decoration">

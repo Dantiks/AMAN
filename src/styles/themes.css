@@ -28,30 +28,32 @@ html:not([data-theme]) {
   --paper-texture: none;
 }
 
-/* Dark Theme */
+/* Dark Theme - ОТКЛЮЧЕНА */
 html[data-theme="dark"],
 [data-theme="dark"] {
-  --bg-secondary: #3a3024 !important;
-  --bg-card: rgba(58, 48, 36, 0.6) !important;
-  --bg-card-hover: rgba(74, 63, 46, 0.8) !important;
+  /* Используем светлую тему вместо темной */
+  --bg-primary: #d8d5d0 !important;
+  --bg-secondary: #e8e6e3 !important;
+  --bg-card: #ffffff !important;
+  --bg-card-hover: #f0eeeb !important;
   
-  --text-primary: #f4f1ea !important;
-  --text-secondary: #d4cfc5 !important;
-  --text-muted: #a89f8f !important;
+  --text-primary: #2b2520 !important;
+  --text-secondary: #6b5d52 !important;
+  --text-muted: #9b8d82 !important;
   
-  --border-color: rgba(139, 119, 101, 0.3) !important;
-  --border-hover: rgba(139, 119, 101, 0.5) !important;
+  --border-color: rgba(0, 0, 0, 0.15) !important;
+  --border-hover: rgba(0, 0, 0, 0.25) !important;
   
-  --shadow-color: rgba(0, 0, 0, 0.4) !important;
-  --glow-color: rgba(244, 241, 234, 0.1) !important;
+  --shadow-color: rgba(0, 0, 0, 0.1) !important;
+  --glow-color: rgba(0, 0, 0, 0.05) !important;
   
-  --accent-color: #d4cfc5 !important;
-  --accent-secondary: #a89f8f !important;
+  --accent-color: #2b2520 !important;
+  --accent-secondary: #4a3f36 !important;
   
-  --gradient-start: #2c2416 !important;
-  --gradient-end: #3a3024 !important;
+  --gradient-start: #d8d5d0 !important;
+  --gradient-end: #e8e6e3 !important;
   
-  --paper-texture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E");
+  --paper-texture: none;
 }
 
 /* Smooth transitions for theme switching */

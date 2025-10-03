@@ -15,67 +15,39 @@ const MainContent: React.FC<MainContentProps> = ({ currentLang }) => {
 
   const sections: Section[] = [
     {
+      id: 'biography',
+      titleRu: 'Биография',
+      titleKg: 'Өмүр баяны',
+      icon: <User size={40} />,
+      description: 'Жизненный путь и творческая биография'
+    },
+    {
       id: 'poetry',
       titleRu: 'Поэзия',
       titleKg: 'Ырлар',
-      icon: <Feather size={32} />,
-      description: '6000 произведений за 24 года творчества'
-    },
-    {
-      id: 'prose',
-      titleRu: 'Проза',
-      titleKg: 'Проза',
-      icon: <BookOpen size={32} />,
-      description: 'Рассказы и повести'
-    },
-    {
-      id: 'translations',
-      titleRu: 'Переводы',
-      titleKg: 'Котормолор',
-      icon: <Globe size={32} />,
-      description: 'Переводы классических произведений'
-    },
-    {
-      id: 'journalism',
-      titleRu: 'Публицистика',
-      titleKg: 'Публицистика',
-      icon: <FileText size={32} />,
-      description: 'Статьи и очерки'
-    },
-    {
-      id: 'memoirs',
-      titleRu: 'Воспоминания',
-      titleKg: 'Эскерүүлөр',
-      icon: <Heart size={32} />,
-      description: 'Личные воспоминания и размышления'
+      icon: <Feather size={40} />,
+      description: 'Стихи и поэтические произведения'
     },
     {
       id: 'gallery',
       titleRu: 'Фотогалерея',
       titleKg: 'Фотогалерея',
-      icon: <Camera size={32} />,
+      icon: <Camera size={40} />,
       description: 'Фотографии из жизни поэта'
     },
     {
       id: 'video',
       titleRu: 'Видео',
       titleKg: 'Видео',
-      icon: <Video size={32} />,
+      icon: <Video size={40} />,
       description: 'Видеоматериалы и интервью'
     },
     {
-      id: 'biography',
-      titleRu: 'Биография',
-      titleKg: 'Өмүр баяны',
-      icon: <User size={32} />,
-      description: 'Жизненный путь и творческая биография'
-    },
-    {
       id: 'feedback',
-      titleRu: 'Отзывы и предложения',
-      titleKg: 'Сайт боюнча ой-пикирлер жана сунуштар',
-      icon: <MessageSquare size={32} />,
-      description: 'Ваши мысли о сайте и предложения'
+      titleRu: 'Контакты',
+      titleKg: 'Байланыш',
+      icon: <MessageSquare size={40} />,
+      description: 'Связаться с нами'
     }
   ];
 
